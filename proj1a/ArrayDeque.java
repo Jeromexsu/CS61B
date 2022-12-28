@@ -1,6 +1,6 @@
 public class ArrayDeque<T> {
     private final static int INIT_SIZE = 2;
-    private final static double USAGE_RATIO_THRESHOLD = 0.5;
+    private final static double USAGE_RATIO_THRESHOLD = 0.25;
     private T[] items;
     private int nextHead;
     private int nextTail;
@@ -107,6 +107,6 @@ public class ArrayDeque<T> {
         this.nextTail = (tail+1) % this.items.length;
         this.nextHead = (head-1+this.items.length) % this.items.length;
     }
-    
+
 }
 

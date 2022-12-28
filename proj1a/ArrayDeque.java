@@ -27,7 +27,7 @@ public class ArrayDeque<T> {
         if (++nextHead >= items.length) nextHead -= items.length;
         T result = items[nextHead];
         items[nextHead] = null;
-        if(1.0*size()/items.length <= USAGE_RATIO_THRESHOLD) resize(0.5);
+        if(1.0*size()/items.length == USAGE_RATIO_THRESHOLD) resize(0.5);
         return result;
     }
     public T removeLast() {

@@ -1,17 +1,9 @@
-/**
- * add and remove operations must not involve any looping or recursion. A single such operation must take “constant time”, i.e. execution time should not depend on the size of the deque.
- * get must use iteration, not recursion.
- * size must take constant time.
- * The amount of memory that your program uses at any given time must be proportional to the number of items.
- * For example, if you add 10,000 items to the deque, and then remove 9,999 items,
- * the resulting size should be more like a deque with 1 item than 10,000. Do not maintain references to items that are no longer in the deque.
- */
 public class LinkedListDeque<T> {
 
     private Node sentinel;
     private int size;
 
-    public LinkedListDeque(){
+    public LinkedListDeque() {
         this.sentinel = new Node();
         this.sentinel.item = null;
         this.sentinel.next = this.sentinel;
@@ -19,20 +11,20 @@ public class LinkedListDeque<T> {
         this.size = 0;
     }
 
-    public void addFirst(T item){
-        Node node = new Node(item,this.sentinel.next,this.sentinel);
+    public void addFirst(T item) {
+        Node node = new Node(item, this.sentinel.next, this.sentinel);
         this.sentinel.next.prev = node;
         this.sentinel.next = node;
         this.size++;
     }
-    public void addLast(T item){
-        Node node = new Node(item,this.sentinel,this.sentinel.prev);
+    public void addLast(T item) {
+        Node node = new Node(item, this.sentinel, this.sentinel.prev);
         this.sentinel.prev.next = node;
         this.sentinel.prev = node;
         this.size++;
     }
 
-    public T removeFirst(){
+    public T removeFirst() {
         if(this.size == 0) return null;
         Node node = this.sentinel.next;
         node.next.prev = this.sentinel;
@@ -40,7 +32,7 @@ public class LinkedListDeque<T> {
         this.size--;
         return node.item;
     }
-    public T removeLast(){
+    public T removeLast() {
         if(this.size == 0) return null;
         Node node = this.sentinel.prev;
         node.prev.next = this.sentinel;
@@ -48,7 +40,7 @@ public class LinkedListDeque<T> {
         this.size--;
         return node.item;
     }
-    public T get(int index){
+    public T get(int index) {
         Node ptr = this.sentinel.next;
         int i = 0;
         while(i != index) {
@@ -62,9 +54,9 @@ public class LinkedListDeque<T> {
         return this.getRecursive(this.sentinel.next,index);
     }
 
-    private T getRecursive(Node node, int index) {
+    private T getRecursive(Node node , int index) {
         if(index == 0) return node.item;
-        else return getRecursive(node.next,index-1);
+        else return getRecursive(node.next ,index-1);
     }
     public boolean isEmpty(){
         return this.size == 0;
@@ -88,7 +80,7 @@ public class LinkedListDeque<T> {
         public Node() {
         }
 
-        public Node(T item, Node next, Node prev) {
+        public Node(T item , Node next , Node prev) {
             this.item = item;
             this.next = next;
             this.prev = prev;

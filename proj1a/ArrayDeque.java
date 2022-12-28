@@ -35,7 +35,7 @@ public class ArrayDeque<T> {
         if(--nextTail < 0) nextTail += items.length;
         T result = items[nextTail];
         items[nextTail] = null;
-        if(1.0*size()/items.length <= USAGE_RATIO_THRESHOLD) resize(0.5);
+        if(1.0*size()/items.length == USAGE_RATIO_THRESHOLD) resize(0.5);
         return result;
     }
 
@@ -108,5 +108,11 @@ public class ArrayDeque<T> {
         this.nextHead = (head-1+this.items.length) % this.items.length;
     }
 
+    public static void main(String[] args) {
+        ArrayDeque<String> test = new ArrayDeque<>();
+        test.addFirst("a");
+        test.addFirst("b");
+        test.removeLast();
+    }
 }
 

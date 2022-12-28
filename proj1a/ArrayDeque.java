@@ -59,6 +59,7 @@ public class ArrayDeque<T> {
         return size;
     }
     public void printDeque(){
+        //
         if(isEmpty()) System.out.println("");
         else {
             int head = (nextHead+1) % items.length;

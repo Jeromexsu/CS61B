@@ -88,22 +88,23 @@ public class ArrayDeque<T> {
         int tail = (nextTail-1+ this.items.length) % items.length;
 
         T[] items = (T[]) new Object[(int) (this.items.length*factor)];
+        int ptr = 0;
         if(head <= tail) {
             for(int i = head; i <= tail; i++) {
-                items[i] = this.items[i];
+                items[ptr++] = this.items[i];
             }
         } else {
-            int ptr = head;
             for(int i = head; i < this.items.length; i++) {
                 items[ptr++] = this.items[i];
             }
             for(int i = 0; i <= tail; i++) {
                 items[ptr++] = this.items[i];
             }
-            tail = ptr-1;
         }
-        this.items = items;
+        head = 0;
+        tail = ptr - 1;
 
+        this.items = items;
         this.nextTail = (tail+1) % this.items.length;
         this.nextHead = (head-1+this.items.length) % this.items.length;
     }
@@ -111,10 +112,13 @@ public class ArrayDeque<T> {
     public static void main(String[] args) {
         ArrayDeque<String> test = new ArrayDeque<>();
         test.addFirst("a");
+        test.removeLast();
+        test.addLast("a");
         test.addFirst("b");
-        test.removeLast();
-        test.removeLast();
-        test.removeLast();
+        test.addFirst("c");
+
+        test.removeFirst();
+        test.removeFirst();
     }
 }
 

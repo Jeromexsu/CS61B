@@ -113,6 +113,8 @@ public class ArrayDeque<T> {
         test.addFirst("a");
         test.addFirst("b");
         test.removeLast();
+        test.removeLast();
+        test.removeLast();
     }
 }
 

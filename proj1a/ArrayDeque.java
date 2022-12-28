@@ -27,7 +27,7 @@ public class ArrayDeque<T> {
         if (++nextHead >= items.length) nextHead -= items.length;
         T result = items[nextHead];
         items[nextHead] = null;
-        if(size()/items.length <= USAGE_RATIO_THRESHOLD) resize(0.5);
+        if(1.0*size()/items.length <= USAGE_RATIO_THRESHOLD) resize(0.5);
         return result;
     }
     public T removeLast() {
@@ -35,7 +35,7 @@ public class ArrayDeque<T> {
         if(--nextTail < 0) nextTail += items.length;
         T result = items[nextTail];
         items[nextTail] = null;
-        if(size()/items.length <= USAGE_RATIO_THRESHOLD) resize(0.5);
+        if(1.0*size()/items.length <= USAGE_RATIO_THRESHOLD) resize(0.5);
         return result;
     }
 
@@ -107,19 +107,6 @@ public class ArrayDeque<T> {
         this.nextTail = (tail+1) % this.items.length;
         this.nextHead = (head-1+this.items.length) % this.items.length;
     }
-
-//    public static void main(String[] args) {
-//        ArrayDeque<String> test = new ArrayDeque<>();
-//        test.addFirst("a");
-//        test.addLast("b");
-//        test.addFirst("c");
-//        test.addLast("d");
-//        test.addLast("e");
-//        test.addLast("f");
-//        test.addLast("g");
-//        test.addLast("h");
-//        System.out.println(test.size());
-//
-//    }
+    
 }
 

@@ -99,18 +99,18 @@ public class ArrayDeque<T> {
         this.items = items;
     }
 
-    public static void main(String[] args) {
-        ArrayDeque<String> test = new ArrayDeque<>();
-        test.addLast("a");
-        test.addLast("b");
-        test.addLast("c");
-        test.addLast("d");
-        test.addLast("e");
-        test.addLast("f");
-        test.addLast("g");
-        test.addLast("h");
-        System.out.println(test.get(7));
-
-    }
+//    public static void main(String[] args) {
+//        ArrayDeque<String> test = new ArrayDeque<>();
+//        test.addLast("a");
+//        test.addLast("b");
+//        test.addLast("c");
+//        test.addLast("d");
+//        test.addLast("e");
+//        test.addLast("f");
+//        test.addLast("g");
+//        test.addLast("h");
+//        System.out.println(test.get(7));
+//
+//    }
 }
 

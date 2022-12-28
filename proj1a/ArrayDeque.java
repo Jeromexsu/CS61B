@@ -40,7 +40,7 @@ public class ArrayDeque<T> {
         // boundary check
         if(index < 0 || index >= size()) return null;
         int head = (nextHead+1) % items.length;
-        index += head;
+        index = (index+head) % items.length;
         return items[index];
     }
 
@@ -59,7 +59,6 @@ public class ArrayDeque<T> {
         return size;
     }
     public void printDeque(){
-        //
         if(isEmpty()) System.out.println("");
         else {
             int head = (nextHead+1) % items.length;
@@ -102,10 +101,15 @@ public class ArrayDeque<T> {
 
     public static void main(String[] args) {
         ArrayDeque<String> test = new ArrayDeque<>();
-        test.addFirst("a");
-        test.addFirst("b");
-        test.addFirst("c");
-        System.out.println(test.isEmpty());
+        test.addLast("a");
+        test.addLast("b");
+        test.addLast("c");
+        test.addLast("d");
+        test.addLast("e");
+        test.addLast("f");
+        test.addLast("g");
+        test.addLast("h");
+        System.out.println(test.get(7));
 
     }
 }

@@ -38,15 +38,14 @@ public class ArrayDeque<T> {
 
     public T get(int index) {
         // boundary check
-        if(index < 0 || index > size()) return null;
+        if(index < 0 || index >= size()) return null;
         int head = (nextHead+1) % items.length;
         index += head;
         return items[index];
     }
 
-    public boolean isEmpty(){
-        int head = nextHead+1;
-        if(head > items.length) head -= items.length;
+    public boolean isEmpty() {
+        int head = (nextHead+1) % items.length;
         return items[head] == null;
     }
     public boolean isFull() {
@@ -100,14 +99,13 @@ public class ArrayDeque<T> {
         this.items = items;
     }
 
-//    public static void main(String[] args) {
-//        ArrayDeque<String> test = new ArrayDeque<>();
-//        test.addLast("a");
-//        test.addLast("b");
-//        test.addLast("c");
-//        test.addLast("c");
-//        test.printDeque();
-//        System.out.println(test.get(1));
-//    }
+    public static void main(String[] args) {
+        ArrayDeque<String> test = new ArrayDeque<>();
+        test.addFirst("a");
+        test.addFirst("b");
+        test.addFirst("c");
+        System.out.println(test.isEmpty());
+
+    }
 }
 

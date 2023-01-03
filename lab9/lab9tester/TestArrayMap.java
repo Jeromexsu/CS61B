@@ -1,9 +1,11 @@
 package lab9tester;
 
-import static org.junit.Assert.*;
 
-import org.junit.Test;
+import static org.testng.Assert.*;
+
+
 import lab9.ArrayMap;
+import org.testng.annotations.Test;
 
 /**
  * Tests by Brendan Hu, Spring 2015, revised for 2018 by Josh Hug
